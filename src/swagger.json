@@ -1,0 +1,192 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API para cadastro de usuários",
+    "description": "Essa API é para realizar cadastros de usuários na aplicação",
+    "contact": {
+      "email": "adsonbruno2@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000/",
+      "description": "API de teste"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Cadastro de usuário",
+        "description": "Cria novo usuário",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              },
+              "examples": {
+                "users": {
+                  "value": {
+                    "firstName": "Fulano",
+                    "lastName": "de Tal",
+                    "email": "fulanodetal@site.com",
+                    "password": "1234"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Something went wrong"
+          },
+          "400": {
+            "description": "Some field was not filled in correctly"
+          },
+          "201": {
+            "description": "User created successfully"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Lista todos os usuários cadastrados",
+        "summary": "Lista todos os usuários",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Uma lista de usuários",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Users"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "patch": {
+        "description": "Altera um usuário pelo ID",
+        "summary": "Alterar um usuário pelo ID",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Nome do usuário pelo ID",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              },
+              "examples": {
+                "users": {
+                  "value": {
+                    "firstName": "Fulano",
+                    "lastName": "de Tal",
+                    "email": "fulanodetal@site.com",
+                    "password": "0000"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Remove um usuário pelo seu ID",
+        "summary": "Remove um usuário pelo ID",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Remove um usuário pelo seu ID",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Users": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

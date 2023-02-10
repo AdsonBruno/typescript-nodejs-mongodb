@@ -1,4 +1,6 @@
 import express from 'express';
+import SwaggerUi from 'swagger-ui-express';
+import swaggerDocs from './swagger.json';
 import { config } from 'dotenv';
 import { GetUsersController } from './controllers/get-users/get-users';
 import { MongoGetUsersRepository } from './repositories/get-users/mongo-get-users';
@@ -18,6 +20,8 @@ const main = async () => {
   app.use(express.json());
 
   await MongoClient.connect();
+
+  app.use('/api-docs', SwaggerUi.serve, SwaggerUi.setup(swaggerDocs));
 
   app.get('/users', async (req, res) => {
     const mongoGetUsersRepository = new MongoGetUsersRepository();
