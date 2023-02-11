@@ -29,8 +29,9 @@ User {
   password: string;
 }</pre>
 
-### Imagens Swagger
+### Documentação de rotas com Swagger
 
+Para acessar a documentação das rotas da API, após rodar o projeto, acesse: `http://localhost:8000/api-docs/#/`
 ![img](/docs/DDocumenta%C3%A7%C3%A3o%20da-API-com-swagger.png)
 
 ### Rodando projeto
