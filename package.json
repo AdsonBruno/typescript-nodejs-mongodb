@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "nodemon --watch \"src/\" --exec \"ts-node src/index.ts\" -e ts",
     "start": "node build/index.js",
-    "build": "tsc --project tsconfig.json"
+    "build": "tsc --project tsconfig.json",
+    "mongo-start": "docker-compose up -d"
   },
   "keywords": [],
   "author": "",
