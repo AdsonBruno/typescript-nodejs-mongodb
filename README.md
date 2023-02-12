@@ -4,6 +4,17 @@
 
 Aplicação para fins de aprendizagem, onde, foi aplicado o padrão de clean architecture e de clean code para fins de conhecimento. Ela possibilita o cadastro de usuários.
 
+# Arquitetura da Aplicação
+
+- Repository Pattern
+
+![img](/docs/Arquitetura.PNG)
+
+## Requisitos
+
+- Docker
+- Docker-compose
+
 ## Tecnologias utilizadas
 
 - Node.js
@@ -34,11 +45,20 @@ User {
 Para acessar a documentação das rotas da API, após rodar o projeto, acesse: `http://localhost:8000/api-docs/#/`
 ![img](/docs/DDocumenta%C3%A7%C3%A3o%20da-API-com-swagger.png)
 
-### Rodando projeto
+## Crie um .env na pasta raíz para adicionar as variáveis de ambientes
 
-Para iniciar o projeto, na linha de comando, basta rodar o comando
+## Rodando projeto
 
-- `yarn start:dev`
+```bash
+# Instale as dependências com:
+$ `yarn install`
+
+# Inicie mongoDB local com docker usando o comando:
+$ `yarn mongo-start`
+
+# Para iniciar o projeto, na linha de comando, basta rodar o comando
+$ `yarn start:dev`
+```
 
 ### Endpoints:
 
