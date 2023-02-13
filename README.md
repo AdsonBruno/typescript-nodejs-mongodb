@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Aplicação para fins de aprendizagem, onde, foi aplicado o padrão de clean architecture e de clean code para fins de conhecimento. Ela possibilita o cadastro de usuários.
+A aplicação foi desenvolvida para fins de aprendizagem, utilizando os padrões de arquitetura limpa e código limpo. O objetivo era obter conhecimento sobre repository pattern, docker, arquitetura limpa, documentação de rotas com swagger e código limpo. A aplicação permite o registro de usuários.
 
 # Arquitetura da Aplicação
 
@@ -46,6 +46,18 @@ Para acessar a documentação das rotas da API, após rodar o projeto, acesse: `
 ![img](/docs/DDocumenta%C3%A7%C3%A3o%20da-API-com-swagger.png)
 
 ## Crie um .env na pasta raíz para adicionar as variáveis de ambientes
+
+- Recomendo que crie uma .env para deixar a aplicação mais segura.
+  exemplo da .env
+
+```bash
+PORT=8000
+
+MONGODB_URL=mongodb://localhost:27017
+MONGODB_USERNAME=
+MONGODB_PASSWORD=
+
+```
 
 ## Rodando projeto
 
@@ -156,3 +168,7 @@ Response
   "id": "63dc16c8d5fea198ef0c3d98"
 }
 ```
+
+# Contato
+
+- Para entrar em contato basta mandar um email para: adsonbruno2@gmail.com
