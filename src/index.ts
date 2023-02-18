@@ -2,7 +2,10 @@ import express from 'express';
 import SwaggerUi from 'swagger-ui-express';
 import swaggerDocs from './swagger.json';
 import { config } from 'dotenv';
-import { GetUsersController } from './controllers/get-users/get-users';
+import {
+  GetUsersController,
+  GetUserByIdController,
+} from './controllers/get-users/get-users';
 import { MongoGetUsersRepository } from './repositories/get-users/mongo-get-users';
 import { MongoClient } from './database/mongo';
 import { MongoCreateUserRepository } from './repositories/create-user/mongo-create-user';
@@ -11,6 +14,7 @@ import { MongoUpdateUserRepository } from './repositories/update-user/mongo-upda
 import { UpdateUserController } from './controllers/update-user/update-user';
 import { MongoDeleteUserRepository } from './repositories/delete-user/mongo-delete-user';
 import { DeleteUserController } from './controllers/delete-user/delete-user';
+import { MongoGetUserByIdRepository } from './repositories/get-users/mongo-get-user-by-id';
 
 const main = async () => {
   config();
@@ -29,6 +33,17 @@ const main = async () => {
     const getUsersController = new GetUsersController(mongoGetUsersRepository);
 
     const { body, statusCode } = await getUsersController.handle();
+
+    res.status(statusCode).send(body);
+  });
+
+  app.get('/users/:id', async (req, res) => {
+    const mongoGetUserByIdRepository = new MongoGetUserByIdRepository();
+
+    const getUserByIdController = new GetUserByIdController(
+      mongoGetUserByIdRepository
+    );
+    const { body, statusCode } = await getUserByIdController.handle(req);
 
     res.status(statusCode).send(body);
   });
