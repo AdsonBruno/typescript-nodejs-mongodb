@@ -128,7 +128,7 @@ Obter a lista de todos os usuários cadastrados
 
 Buscar usuário pelo ID
 
-### `GET` -> `http://localhost:8000/users/:id`
+#### `GET` -> `http://localhost:8000/users/:id`
 
 ```json
 {
