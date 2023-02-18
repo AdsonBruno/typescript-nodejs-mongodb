@@ -82,6 +82,37 @@
       }
     },
     "/users/{id}": {
+      "get": {
+        "description": "Retorna usuários com base no ID",
+        "summary": "Encontra usuário com base no ID",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "getUserById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do usuário",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      },
       "patch": {
         "description": "Altera um usuário pelo ID",
         "summary": "Alterar um usuário pelo ID",

@@ -126,6 +126,20 @@ Obter a lista de todos os usuários cadastrados
 }
 ```
 
+Buscar usuário pelo ID
+
+### `GET` -> `http://localhost:8000/users/:id`
+
+```json
+{
+  "id": "63e7b5e4d5f7ed8e7b0d887f",
+  "firstName": "Teste ",
+  "lastName": "de test",
+  "email": "fulanodetal@site.com",
+  "password": "1234"
+}
+```
+
 Atualizar usuário pelo ID
 
 #### `PATCH` -> `http://localhost:8000/users/63e6bdf9d9dc8dd49daa1adc`
